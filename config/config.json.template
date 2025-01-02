@@ -1,0 +1,27 @@
+{
+  "addr": "0.0.0.0",
+  "port": $PORT,
+  "token": "$TOKEN",
+  "tunnel": {
+    "tls": $TUNNEL_TLS,
+    "pem_file": "$TUNNEL_PEM_FILE",
+    "key_file": "$TUNNEL_KEY_FILE"
+  },
+  "http": {
+    "http_port": $HTTP_PORT,
+    "https_port": $HTTPS_PORT,
+    "pem_file": "$HTTP_PEM_FILE",
+    "key_file": "$HTTP_KEY_FILE",
+    "heartbeat": 30
+  },
+  "tcp": {
+    "buffer_cache": 32768,
+    "port_range": "$PORT_RANGE"
+  },
+  "udp": {
+    "keep_time": 7200,
+    "health_check": 60,
+    "buffer_cache": 32768,
+    "port_range": "$PORT_RANGE"
+  }
+}

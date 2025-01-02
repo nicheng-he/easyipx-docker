@@ -1,0 +1,19 @@
+version: '3.5'
+
+services:
+  easyipx:
+    platform: linux/${ARCH}
+    container_name: easyipx
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        ARCH: ${ARCH}
+        VERSION: ${VERSION}
+    image: registry.cn-shanghai.aliyuncs.com/yhliu-public/easyipx:${ARCH}-${VERSION}
+    network_mode: host
+    env_file:
+      .env
+    volumes:
+      - ./ssl/:/opt/easyipx/ssl/
