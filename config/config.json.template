@@ -2,6 +2,7 @@
   "addr": "0.0.0.0",
   "port": $PORT,
   "token": "$TOKEN",
+  "heartbeat": 30,
   "tunnel": {
     "tls": $TUNNEL_TLS,
     "pem_file": "$TUNNEL_PEM_FILE",
