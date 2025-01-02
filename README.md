@@ -56,11 +56,9 @@ git clone git@github.com:nicheng-he/easyipx-docker.git
 
 3. **构建镜像**
 
-- 设置`VERSION`为你需要的版本,例如4.0.3
-- 设置`ARCH`为指定的架构,例如amd64
+- 设置`--version`为你需要的版本,例如4.0.3
+- 设置`--arch`为指定的架构,例如amd64
 
 ```bash
-VERSION=4.0.3
-ARCH=amd64
-docker build --build-arg ARCH=${ARCH} --build-arg VERSION=${VERSION} -t easyipx:${ARCH}-${VERSION} .
+docker_build.sh --version=4.0.3 --arch=amd64
 ```
