@@ -40,6 +40,7 @@ docker run -d \
  镜像版本        | 镜像地址                                                               | 镜像描述          
 -------------|--------------------------------------------------------------------|---------------
  amd64-4.0.3 | registry.cn-shanghai.aliyuncs.com/yhliu-public/easyipx:amd64-4.0.3 | linux/amd64架构 
+ arm64-4.0.3 | registry.cn-shanghai.aliyuncs.com/yhliu-public/easyipx:arm64-4.0.3 | linux/arm64架构 
  amd64-3.2.0 | registry.cn-shanghai.aliyuncs.com/yhliu-public/easyipx:amd64-3.2.0 | linux/amd64架构 
 
 ### 自行构建
