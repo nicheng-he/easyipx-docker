@@ -2,7 +2,7 @@
 
 ## 官方部署方式
 
-请参考 [easyipx 官方文档](https://github.com/your-repo/easyipx/blob/main/README.md) 获取更多信息。
+请参考 [easyipx 官方文档](https://www.yuque.com/xinu/notes/mzagfszkmy1gecaf?singleDoc) 获取更多信息。
 
 ## Docker镜像启动方式
 
