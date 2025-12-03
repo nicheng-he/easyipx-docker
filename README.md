@@ -6,6 +6,33 @@
 
 ## Docker镜像启动方式
 
+### 编排模板
+
+```
+services:
+  easyipx:
+    # 直接指定镜像（amd64+4.0.3，根据你的系统修改ARCH）
+    image: registry.cn-shanghai.aliyuncs.com/yhliu-public/easyipx:amd64-4.0.3
+    container_name: easyipx
+    restart: always
+    network_mode: host
+    environment:
+      - TZ=Asia/Shanghai
+      - PORT=8088  # 通道使用的端口
+      - TOKEN=your_custom_token  # 必须修改为自定义token（如：123456abc）
+      - TUNNEL_TLS=false  # 是否开启通道加密
+      #- TUNNEL_PEM_FILE=/opt/easyipx/ssl/server.pem  # 启用TLS时取消注释并配置
+      #- TUNNEL_KEY_FILE=/opt/easyipx/ssl/server.key
+      - HTTP_PORT=6080  # HTTP服务端口
+      #- HTTPS_PORT=6443  # 启用HTTPS时取消注释
+      #- HTTP_PEM_FILE=/opt/easyipx/ssl/http.pem
+      #- HTTP_KEY_FILE=/opt/easyipx/ssl/http.key
+      - PORT_RANGE=1024-49151  # 动态端口范围
+    volumes:
+      - /easyipx/ssl:/opt/easyipx/ssl/  # 证书存储目录（宿主机路径）
+
+```
+
 ### 使用现有镜像
 
 其中 /path/ssl/ 为证书存放路径 version 为使用的版本号
