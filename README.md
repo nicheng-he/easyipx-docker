@@ -9,29 +9,27 @@
 ### 编排模板
 
 ```
-version: '3.8'
 services:
   easyipx:
-    image: registry.cn-shanghai.aliyuncs.com/yhliu-public/easyipx:${ARCH}-${VERSION}
+    # 直接指定镜像（amd64+4.0.3，根据你的系统修改ARCH）
+    image: registry.cn-shanghai.aliyuncs.com/yhliu-public/easyipx:amd64-4.0.3
     container_name: easyipx
     restart: always
     network_mode: host
     environment:
       - TZ=Asia/Shanghai
-      - ARCH=amd64  # 支持amd64/arm64，依据系统自定义此处
-      - VERSION=4.0.3  # 可替换为3.2.0等支持的版本
       - PORT=8088  # 通道使用的端口
-      - TOKEN=  # 建议修改为自定义token
+      - TOKEN=your_custom_token  # 必须修改为自定义token（如：123456abc）
       - TUNNEL_TLS=false  # 是否开启通道加密
-      #- TUNNEL_PEM_FILE=  # 通道加密证书路径（TUNNEL_TLS=true时必填）
-      #- TUNNEL_KEY_FILE=  # 通道加密密钥路径（TUNNEL_TLS=true时必填）
+      #- TUNNEL_PEM_FILE=/opt/easyipx/ssl/server.pem  # 启用TLS时取消注释并配置
+      #- TUNNEL_KEY_FILE=/opt/easyipx/ssl/server.key
       - HTTP_PORT=6080  # HTTP服务端口
-      #- HTTPS_PORT=6443  # HTTPS服务端口
-      #- HTTP_PEM_FILE=  # HTTPS证书路径（启用HTTPS时必填）
-      #- HTTP_KEY_FILE=  # HTTPS密钥路径（启用HTTPS时必填）
-      - PORT_RANGE=1024-49151  # 端口范围，这里的端口范围只是为了方便客户端设置端口，不会全部占用，用到哪个开哪个
+      #- HTTPS_PORT=6443  # 启用HTTPS时取消注释
+      #- HTTP_PEM_FILE=/opt/easyipx/ssl/http.pem
+      #- HTTP_KEY_FILE=/opt/easyipx/ssl/http.key
+      - PORT_RANGE=1024-49151  # 动态端口范围
     volumes:
-      - /easyipx/ssl:/opt/easyipx/ssl/  # 证书存储目录，左侧为宿主机路径
+      - /easyipx/ssl:/opt/easyipx/ssl/  # 证书存储目录（宿主机路径）
 
 ```
 
