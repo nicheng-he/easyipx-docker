@@ -8,8 +8,8 @@
 
 ### 编排模板
 
-1Panel面板中```/opt/1panel/apps/easyipx/ssl```作为你放置ssl证书的位置
-宝塔面板中建议使用```/www/wwwroot/easyipx/ssl```作为你放置ssl证书的位置
+1Panel面板中```/opt/1panel/apps/easyipx/ssl```作为你放置ssl证书的位置  
+宝塔面板中建议使用```/www/wwwroot/easyipx/ssl```作为你放置ssl证书的位置  
 ```
 services:
   easyipx:
