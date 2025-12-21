@@ -8,6 +8,8 @@
 
 ### 编排模板
 
+1Panel面板中```/opt/1panel/apps/easyipx/ssl```作为你放置ssl证书的位置
+宝塔面板中建议使用```/www/wwwroot/easyipx/ssl```作为你放置ssl证书的位置
 ```
 services:
   easyipx:
@@ -29,9 +31,11 @@ services:
       #- HTTP_KEY_FILE=/opt/easyipx/ssl/http.key
       - PORT_RANGE=1024-49151  # 动态端口范围
     volumes:
-      - /easyipx/ssl:/opt/easyipx/ssl/  # 证书存储目录（宿主机路径）
+      - /opt/1panel/apps/easyipx/ssl:/opt/easyipx/ssl/  # 在冒号左侧修改你的证书存储目录（宿主机路径），宝塔改为 /www/wwwroot/easyipx/ssl
 
 ```
+
+面板中部署后直接新建站点，反向代理```http://127.0.0.1:6080```即可
 
 ### 使用现有镜像
 
